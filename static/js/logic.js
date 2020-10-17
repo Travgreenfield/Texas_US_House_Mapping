@@ -18,3 +18,13 @@ let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{
     });
     // Then we add our 'graymap' tile layer to the map.
     streets.addTo(map);
+
+// Accessing the Toronto neighborhoods GeoJSON URL.
+let houseLines = "https://opendata.arcgis.com/datasets/3460a1afcec54b4da35b86b9c9c7a399_0.geojson";
+
+// Grabbing GeoJSON
+d3.json(houseLines).then(function(data) {
+    console.log(data);
+    //GeoJSON data with data
+    L.geoJSON(data).addTo(map);
+});
